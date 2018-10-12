@@ -14,14 +14,15 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        //prompting the user to make a choice of what he/she would like to do
+        //greeting
         System.out.println(user.greeting());
-//        user.setUserThirdChoice(scan.nextLine());
 
         do {
-                userThirdChoiceMethod();
+            //prompting the user to make a choice of what he/she would like to do
+            userThirdChoiceMethod();
                 if (user.getUserThirdChoice().equalsIgnoreCase("add")) {
+
+                    //prompting the user to make a choice of who he/she would like to add
                     System.out.println("Would you like to enter a teacher, a student, or a course today?");
                     String choice = scan.nextLine();
 
@@ -58,6 +59,7 @@ public class Main {
         }while(user.getUserChoice().equalsIgnoreCase("go"));
     }
 
+    //adds students
     public static void studentAdd(){
 
         System.out.println("Please enter the id of the student");
@@ -76,6 +78,7 @@ public class Main {
         studentsList.add(student);
     }
 
+    //adds teachers
     public static void teacherAdd(){
         Teachers teacher = new Teachers();
 
@@ -95,6 +98,7 @@ public class Main {
         teachersList.add(teacher);
     }
 
+    //adds courses
     public static void courseAdd(){
         Courses course = new Courses();
 
@@ -107,6 +111,7 @@ public class Main {
         coursesList.add(course);
     }
 
+    //shows students
     public static void showListStud(){
         for(Students eachStud : studentsList){
             System.out.println("Here is the list of students");
@@ -115,6 +120,7 @@ public class Main {
         }
     }
 
+    //shows teachers
     public static void showListTeach(){
         for(Teachers eachTeach : teachersList){
             System.out.println("Here is the list of teachers");
@@ -122,6 +128,7 @@ public class Main {
                     " \nTeacher's Email: " + eachTeach.getEmail());        }
     }
 
+    //shows courses
     public static void showListCourse(){
         for(Courses eachCourse : coursesList){
             System.out.println("Here is the list of courses");
@@ -129,19 +136,17 @@ public class Main {
         }
     }
 
+    //giving the user option to finish using the program or exit
     public static void  userSecondChoice(){
         System.out.println("Thank you! What would you like to do now? Enter go to do more actions or press any key to stop the program");
         String userSecChoice = scan.nextLine();
         user.setUserChoice(userSecChoice);
-
-
     }
 
+    //giving the user to make a choice of his/her task
     public static void userThirdChoiceMethod(){
         System.out.println(user.thirdChoice());
         String userThirdChoice = scan.nextLine();
         user.setUserThirdChoice(userThirdChoice);
     }
-
-
 }
